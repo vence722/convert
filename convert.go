@@ -227,3 +227,8 @@ func Str2ByteSliceNonCopy(val string) []byte {
 	pslc.Cap = pslc.Len
 	return *(*[]byte)(unsafe.Pointer(pslc))
 }
+
+// Zero-copy convert from byte slice to a string
+func BytesSlice2StrNonCopy(val []byte) string {
+	return *(*string)(unsafe.Pointer(&val))
+}
