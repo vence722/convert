@@ -223,9 +223,12 @@ func Str2Bool(val string) bool {
 // It has higher performance, but notice that it may be not safe when garbage collection happens.
 // Use it when you need to temporary convert a long string to a byte slice and won't keep it for long time.
 func Str2ByteSliceNonCopy(val string) []byte {
-	pslc := (*reflect.SliceHeader)(unsafe.Pointer(&val))
-	pslc.Cap = pslc.Len
-	return *(*[]byte)(unsafe.Pointer(pslc))
+	pSliceHeader := &reflect.SliceHeader{}
+	strHeader := (*reflect.StringHeader)(unsafe.Pointer(&val))
+	pSliceHeader.Data = strHeader.Data
+	pSliceHeader.Len = strHeader.Len
+	pSliceHeader.Cap = strHeader.Len
+	return *(*[]byte)(unsafe.Pointer(pSliceHeader))
 }
 
 // Zero-copy convert from byte slice to a string
