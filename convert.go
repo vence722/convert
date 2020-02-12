@@ -361,8 +361,7 @@ func Str2Bool(val string) bool {
 func Bool2Int(val bool) int {
 	if val == true {
 		return 1
-	}
-	if val == false {
+	} else {
 		return 0
 	}
 }
