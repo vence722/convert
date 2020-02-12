@@ -8,7 +8,7 @@ import(
 	"reflect"
 )
 
-// Convert integers to string, return empty string if the convertion fails
+// Convert integers to string, return empty string if the conversion fails
 func Int2Str(val interface{}) string{
 	switch val.(type){
 		// Integers
@@ -61,66 +61,73 @@ func Bool2Str(val bool) string {
 	return "false"
 }
 
-func internalStr2Int(val string, bitSize int, noPanic bool) int64 {
+func internalStr2Int(val string, bitSize int, noPanic bool) (int64, error) {
 	res, err := strconv.ParseInt(val, 0, bitSize)
 	if err != nil{
 		if noPanic {
-			return 0
+			return 0, err
 		}else {
 			panic(err)
 		}
 	}
+	return res, nil
+}
+
+// Simply return the conversion result.
+// For conversions that may panic, the code won't come here.
+// For conversions that won't panic, res will be zero value and err will come here as well.
+func wrapResult(res int64, err error) int64 {
 	return res
 }
 
 // Convert string to int64, panic when the string is not of a valid int64 format.
 func Str2Int64(val string) int64 {
-	return int64(internalStr2Int(val, 64, false))
+	return int64(wrapResult(internalStr2Int(val, 64, false)))
 }
 
 // Convert string to int64, return 0 if the convertion fails
 func Str2Int64NoPanic(val string) int64 {
-	return int64(internalStr2Int(val, 64, true))
+	return int64(wrapResult(internalStr2Int(val, 64, true)))
 }
 
 // Convert string to int32, panic when the string is not of a valid int32 format.
 func Str2Int32(val string) int32 {
-	return int32(internalStr2Int(val, 32, false))
+	return int32(wrapResult(internalStr2Int(val, 32, false)))
 }
 
 // Convert string to int32, return 0 if the convertion fails
 func Str2Int32NoPanic(val string) int32 {
-	return int32(internalStr2Int(val, 32, true))
+	return int32(wrapResult(internalStr2Int(val, 32, true)))
 }
 
 // Convert string to int16, panic when the string is not of a valid int16 format.
 func Str2Int16(val string) int16 {
-	return int16(internalStr2Int(val, 16, false))
+	return int16(wrapResult(internalStr2Int(val, 16, false)))
 }
 
 // Convert string to int16, return 0 if the convertion fails
 func Str2Int16NoPanic(val string) int16 {
-	return int16(internalStr2Int(val, 16, true))
+	return int16(wrapResult(internalStr2Int(val, 16, true)))
 }
 
 // Convert string to int8, panic when the string is not of a valid int8 format.
 func Str2Int8(val string) int8 {
-	return int8(internalStr2Int(val, 8, false))
+	return int8(wrapResult(internalStr2Int(val, 8, false)))
 }
 
 // Convert string to int8, return 0 if the convertion fails
 func Str2Int8NoPanic(val string) int8 {
-	return int8(internalStr2Int(val, 8, true))
+	return int8(wrapResult(internalStr2Int(val, 8, true)))
 }
 
 // Convert string to int, panic when the string is not of a valid int format.
 func Str2Int(val string) int {
-	return int(internalStr2Int(val, 0, false))
+	return int(wrapResult(internalStr2Int(val, 0, false)))
 }
 
 // Convert string to int, return 0 if the convertion fails
 func Str2IntNoPanic(val string) int {
-	return int(internalStr2Int(val, 0, true))
+	return int(wrapResult(internalStr2Int(val, 0, true)))
 }
 
 func internalStr2Uint(val string, bitSize int, noPanic bool) uint64 {
