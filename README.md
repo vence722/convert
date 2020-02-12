@@ -1,5 +1,5 @@
 # convert
-A set of helper functions for data type convertion in Go programming language.
+A set of helper functions for data type conversion in Go programming language.
 
 ## Installation
 ```
