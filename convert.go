@@ -225,6 +225,16 @@ func Str2Bool(val string) bool {
 	panic(errors.New("could not resolve bool value:" + val))
 }
 
+// Convert bool to int, never panics
+func Bool2Int(val bool) int {
+	if val == true {
+		return 1
+	}
+	if val == false {
+		return 0
+	}
+}
+
 
 // Convert different types to byte slice using types and functions in unsafe and reflect package. 
 // It has higher performance, but notice that it may be not safe when garbage collection happens.
