@@ -92,7 +92,7 @@ func Str2Int64NoPanic(val string) int64 {
 
 // Convert string to int64, return the default value you set when the conversion fails
 func Str2Int64WithDefaultValue(val string, defaultVal int64) int64 {
-	if res, err := internalStr2Int(val, 64, false); err != nil {
+	if res, err := internalStr2Int(val, 64, true); err != nil {
 		return defaultVal
 	} else {
 		return int64(res)
@@ -111,7 +111,7 @@ func Str2Int32NoPanic(val string) int32 {
 
 // Convert string to int32, return the default value you set when the conversion fails
 func Str2Int32WithDefaultValue(val string, defaultVal int32) int32 {
-	if res, err := internalStr2Int(val, 32, false); err != nil {
+	if res, err := internalStr2Int(val, 32, true); err != nil {
 		return defaultVal
 	} else {
 		return int32(res)
@@ -130,7 +130,7 @@ func Str2Int16NoPanic(val string) int16 {
 
 // Convert string to int16, return the default value you set when the conversion fails
 func Str2Int16WithDefaultValue(val string, defaultVal int16) int16 {
-	if res, err := internalStr2Int(val, 16, false); err != nil {
+	if res, err := internalStr2Int(val, 16, true); err != nil {
 		return defaultVal
 	} else {
 		return int16(res)
@@ -149,7 +149,7 @@ func Str2Int8NoPanic(val string) int8 {
 
 // Convert string to int8, return the default value you set when the conversion fails
 func Str2Int8WithDefaultValue(val string, defaultVal int8) int8 {
-	if res, err := internalStr2Int(val, 8, false); err != nil {
+	if res, err := internalStr2Int(val, 8, true); err != nil {
 		return defaultVal
 	} else {
 		return int8(res)
@@ -168,7 +168,7 @@ func Str2IntNoPanic(val string) int {
 
 // Convert string to int, return the default value you set when the conversion fails
 func Str2IntWithDefaultValue(val string, defaultVal int) int {
-	if res, err := internalStr2Int(val, 0, false); err != nil {
+	if res, err := internalStr2Int(val, 0, true); err != nil {
 		return defaultVal
 	} else {
 		return int(res)
@@ -206,7 +206,7 @@ func Str2Uint64NoPanic(val string) uint64 {
 
 // Convert string to uint64, return the default value you set when the conversion fails
 func Str2Uint64WithDefaultValue(val string, defaultVal uint64) uint64 {
-	if res, err := internalStr2Uint(val, 64, false); err != nil {
+	if res, err := internalStr2Uint(val, 64, true); err != nil {
 		return defaultVal
 	} else {
 		return uint64(res)
@@ -225,7 +225,7 @@ func Str2Uint32NoPanic(val string) uint32 {
 
 // Convert string to uint32, return the default value you set when the conversion fails
 func Str2Uint32WithDefaultValue(val string, defaultVal uint32) uint32 {
-	if res, err := internalStr2Uint(val, 32, false); err != nil {
+	if res, err := internalStr2Uint(val, 32, true); err != nil {
 		return defaultVal
 	} else {
 		return uint32(res)
@@ -244,7 +244,7 @@ func Str2Uint16NoPanic(val string) uint16 {
 
 // Convert string to uint16, return the default value you set when the conversion fails
 func Str2Uint16WithDefaultValue(val string, defaultVal uint16) uint16 {
-	if res, err := internalStr2Uint(val, 16, false); err != nil {
+	if res, err := internalStr2Uint(val, 16, true); err != nil {
 		return defaultVal
 	} else {
 		return uint16(res)
@@ -263,7 +263,7 @@ func Str2Uint8NoPanic(val string) uint8 {
 
 // Convert string to uint16, return the default value you set when the conversion fails
 func Str2Uint8WithDefaultValue(val string, defaultVal uint8) uint8 {
-	if res, err := internalStr2Uint(val, 8, false); err != nil {
+	if res, err := internalStr2Uint(val, 8, true); err != nil {
 		return defaultVal
 	} else {
 		return uint8(res)
@@ -282,7 +282,7 @@ func Str2UintNoPanic(val string) uint {
 
 // Convert string to uint, return the default value you set when the conversion fails
 func Str2UintWithDefaultValue(val string, defaultVal uint) uint {
-	if res, err := internalStr2Uint(val, 0, false); err != nil {
+	if res, err := internalStr2Uint(val, 0, true); err != nil {
 		return defaultVal
 	} else {
 		return uint(res)
@@ -320,7 +320,7 @@ func Str2Float64NoPanic(val string) float64 {
 
 // Convert string to float64, return the default value you set when the conversion fails
 func Str2Float64WithDefaultValue(val string, defaultVal float64) float64 {
-	if res, err := internalStr2Float(val, 64, false); err != nil {
+	if res, err := internalStr2Float(val, 64, true); err != nil {
 		return defaultVal
 	} else {
 		return float64(res)
@@ -339,7 +339,7 @@ func Str2Float32NoPanic(val string) float32 {
 
 // Convert string to float32, return the default value you set when the conversion fails
 func Str2Float32WithDefaultValue(val string, defaultVal float32) float32 {
-	if res, err := internalStr2Float(val, 32, false); err != nil {
+	if res, err := internalStr2Float(val, 32, true); err != nil {
 		return defaultVal
 	} else {
 		return float32(res)
