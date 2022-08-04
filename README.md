@@ -1,5 +1,4 @@
-# convert
-A set of helper functions for data type conversion in Go programming language.
+# convert --- Deprecated, please use [conv](https://github.com/vence722/conv) instead
 
 ## Installation
 ```
